@@ -50,8 +50,10 @@ const producto3 = new Productos(
   "Notebook ThinkPad E15 2da Gen (15.6”, Intel)",
   180000,
   "tecnologico",
-  "Lenovo Thinkpad E15 G2 20Tds00B00 15.6″ Notebook – Full Hd – 1920 X 1080 – Intel Core I5 I5-1135G7 Quad-Core (4 Core) 2.40 Ghz – 8 Gb Ram – 256 Gb Ssd – Glossy Black – Windows 10 Pro – Intel Iris"
+  "Lenovo Thinkpad E15 G2 20Tds00B00 15.6″ Notebook - Full Hd - 1920 X 1080 - Intel Core I5 I5-1135G7 Quad-Core (4 Core) 2.40 Ghz - 8 Gb Ram - 256 Gb Ssd - Glossy Black - Windows 10 Pro - Intel Iris"
 );
 productos.push(producto3);
 producto3.vender();
 producto3.sumarIva();
+
+console.log(productos);
