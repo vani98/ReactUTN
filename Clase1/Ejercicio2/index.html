@@ -4,10 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Clase1</title>
   </head>
   <body>
     <h1>Clase 1 - Ejercicio 2</h1>
+    <div>
+      <h3>Comprobemos si el jugador existe en nuestro equipo!</h3>
+      <form id="form_consulta_nombre">
+        <label for="input_nombre_jugador"
+          >Ingrese el nombre completo del jugador:</label
+        >
+        <input type="text" name="nombre" id="input_nombre_jugador" />
+        <input
+          type="submit"
+          value="Comprobar"
+          id="submit_nombre_jugador"
+          disabled
+        />
+        <input type="button" value="Vaciar busqueda" id="vaciar_busqueda" />
+      </form>
+    </div>
+    <div>
+      <h3>Ahora veamos cuantos jugadores tienen la edad indicada</h3>
+      <form id="form_consulta_edad">
+        <label for="input_edad_jugador">Ingrese la edad a buscar:</label>
+        <input type="number" name="edad" id="input_edad_jugador" />
+        <input type="submit" value="Comprobar" id="submit_edad_jugador" />
+        <input type="button" value="Vaciar busqueda" id="vaciar_busqueda" />
+      </form>
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>

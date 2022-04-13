@@ -2,7 +2,7 @@ const productos = [];
 
 class Productos {
   constructor(nombre, precio, tipoServicio, detalle) {
-    this.id = productos;
+    this.id = productos.length + 1;
     this.nombre = nombre.toUpperCase();
     this.precio = Number(precio);
     this.tipoServicio = tipoServicio.toUpperCase();
@@ -26,7 +26,7 @@ const producto1 = new Productos(
   "Celular motorola g71",
   58000,
   "tecnologico",
-  'Celular. Pantalla gOLED FH+ de 6.43". Procesador: Octa core Qualcomm Snapdragon 695. Almacenamiento: 128Gb. RAM: 6 Gb. Camara principal: 50MP (74) F1.8 + Ultra Gran Angular y profundidad: 8MP (118) F2.2 + Macro: 2MP (78) F2.4. Camara Frontal: 16 Mp. Tecnologia 5G. NFC. Radio. USB C. WIFI. Bateria: 5000 mAh. Bluetooth. Sistema Operativo: Andriod 11'
+  "Celular. Pantalla gOLED FH+ de 6.43 pulgadas. Procesador: Octa core Qualcomm Snapdragon 695. Almacenamiento: 128Gb. RAM: 6 Gb. Camara principal: 50MP (74) F1.8 + Ultra Gran Angular y profundidad: 8MP (118) F2.2 + Macro: 2MP (78) F2.4. Camara Frontal: 16 Mp. Tecnologia 5G. NFC. Radio. USB C. WIFI. Bateria: 5000 mAh. Bluetooth. Sistema Operativo: Andriod 11"
 );
 productos.push(producto1);
 producto1.vender();
