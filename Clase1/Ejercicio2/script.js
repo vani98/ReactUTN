@@ -34,16 +34,19 @@ equipo.push(jugador5);
 2. Codificar una función con la siguiente cabecera: buscarJugador(equipo, jugador). En ella, se recibe por parámetro un array de jugadores (objetos instanciados empleando la clase de la actividad 3), y el nombre de un jugador. La función retorna el jugador que coincide con el nombre. Realizar al menos tres (3) búsquedas solicitando el nombre al usuario, e informar sobre el resultado de cada búsqueda.
 */
 
-let submitNombreJugador = document.getElementById("submit_nombre_jugador");
-let inputNombreJugador = document.getElementById("input_nombre_jugador");
 let formConsultaNombre = document.getElementById("form_consulta_nombre");
-let eliminarResultado = document.getElementById("vaciar_busqueda");
+let inputNombreJugador = document.getElementById("input_nombre_jugador");
+let submitNombreJugador = document.getElementById("submit_nombre_jugador");
+let eliminarNombreResultado = document.getElementById("vaciar_nombre_busqueda");
 
-submitNombreJugador.addEventListener("click", handleJugadorClick);
-inputNombreJugador.addEventListener("input", handleInput);
-eliminarResultado.addEventListener("click", handleEliminarResultado);
+submitNombreJugador.addEventListener("click", handleNombreJugadorClick);
+inputNombreJugador.addEventListener("input", handleInputNombre);
+eliminarNombreResultado.addEventListener(
+  "click",
+  handleEliminarNombreResultado
+);
 
-function handleJugadorClick(e) {
+function handleNombreJugadorClick(e) {
   e.preventDefault();
   let jugadorIngresado = inputNombreJugador.value.trim().toUpperCase();
   buscarJugador(equipo, jugadorIngresado);
@@ -51,25 +54,23 @@ function handleJugadorClick(e) {
   submitNombreJugador.disabled = true;
 }
 
-//Funcion indicada
-
-let jugadorResultado = document.createElement("p");
+let nombreResultado = document.createElement("p");
 
 function buscarJugador(equipo, jugadorIngresado) {
   let mostrarResultado = formConsultaNombre.insertAdjacentElement(
     "afterend",
-    jugadorResultado
+    nombreResultado
   );
   if (jugadorIngresado != "") {
     let jugadorEncontrado = equipo.find(
       (jugador) => jugador.nombre === jugadorIngresado
     );
     if (jugadorEncontrado === undefined) {
-      jugadorResultado.textContent = `NO encontramos al jugador  ${jugadorIngresado} en nuestro equipo`;
-      jugadorResultado.className = "jugador_resultado jugador_no_encontrado";
-      return jugadorResultado;
+      nombreResultado.textContent = `NO encontramos al jugador  ${jugadorIngresado} en nuestro equipo`;
+      nombreResultado.className = "jugador_resultado jugador_no_encontrado";
+      return nombreResultado;
     } else {
-      jugadorResultado.textContent = `Encontramos al jugador ${
+      nombreResultado.textContent = `Encontramos al jugador ${
         jugadorEncontrado.nombre
       } en el equipo! Actualmente tiene ${
         jugadorEncontrado.edad
@@ -78,20 +79,19 @@ function buscarJugador(equipo, jugadorIngresado) {
       }. Estado: ${
         jugadorEncontrado.estaLesionado ? "lesionado" : "sin lesiones"
       }`;
-      jugadorResultado.className = "jugador_resultado jugador_encontrado";
-      return jugadorResultado;
+      nombreResultado.className = "jugador_resultado jugador_encontrado";
+      return nombreResultado;
     }
   }
 }
 
-function handleInput(e) {
-  console.log(e.target.value);
+function handleInputNombre(e) {
   if (e.target.value !== "") {
     submitNombreJugador.disabled = false;
   }
 }
-function handleEliminarResultado() {
-  jugadorResultado.remove();
+function handleEliminarNombreResultado() {
+  nombreResultado.remove();
 }
 
 /*
@@ -99,8 +99,50 @@ function handleEliminarResultado() {
 Atención a la hora de crear el código, mucho de ello puede ser reutilizado sonrisa 
 */
 
-//filter
+let formConsultaEdad = document.getElementById("form_consulta_edad");
+let inputEdadJugador = document.getElementById("input_edad_jugador");
+let submitEdadJugador = document.getElementById("submit_edad_jugador");
+let eliminarEdadResultado = document.getElementById("vaciar_edad_busqueda");
 
-// let submitNombreJugador = document.getElementById("submitNombreJugador");
-// let inputNombreJugador = document.getElementById("inputNombreJugador");
-// let FormEdadJugador = document.getElementById("FormEdadJugador");
+submitEdadJugador.addEventListener("click", handleEdadJugadorClick);
+inputEdadJugador.addEventListener("input", handleInputEdad);
+eliminarEdadResultado.addEventListener("click", handleEliminarEdadResultado);
+
+function handleEdadJugadorClick(e) {
+  e.preventDefault();
+  let edadIngresada = parseInt(inputEdadJugador.value);
+  filtroJugadores(equipo, edadIngresada);
+  inputEdadJugador.value = "";
+  submitEdadJugador.disabled = true;
+}
+
+let edadResultado = document.createElement("p");
+function filtroJugadores(equipo, edadIngresada) {
+  let jugadoresEncontrados = equipo.filter(
+    (jugador) => jugador.edad === edadIngresada
+  );
+  let mostrarEdad = formConsultaEdad.insertAdjacentElement(
+    "afterend",
+    edadResultado
+  );
+  let mapeoNombres = jugadoresEncontrados.map((jugador) =>
+    jugador.nombre.toLowerCase()
+  );
+  if (jugadoresEncontrados.length !== 0) {
+    edadResultado.innerText = `La edad ingresada(${edadIngresada}) ha coincidido con la edad de: ${mapeoNombres}`;
+    edadResultado.className = "jugador_encontrado";
+    return mostrarEdad;
+  } else {
+    edadResultado.innerText = `La edad ingresada(${edadIngresada}) no coincide con ninguno de nuestros jugadores`;
+    edadResultado.className = "jugador_no_encontrado";
+    return mostrarEdad;
+  }
+}
+function handleInputEdad(e) {
+  if (e.target.value !== "") {
+    submitEdadJugador.disabled = false;
+  }
+}
+function handleEliminarEdadResultado() {
+  edadResultado.remove();
+}
