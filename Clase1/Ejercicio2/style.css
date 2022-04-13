@@ -5,3 +5,8 @@
 .jugador_no_encontrado {
   color: #db3434;
 }
+
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}
