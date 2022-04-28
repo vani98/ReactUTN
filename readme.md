@@ -9,6 +9,6 @@
   - PracticaUno (con Berni): Ejercicios para practicar la creación de un proyecto en react, la separación en componentes e inicio de utilización de hooks en los mismos con la implementación de un contador.
     ACLARACIÓN!
     Esta entrega fué dividida en 2 tareas ya que el ejercicio se puede resolver tanto con un useState como con un useReducer.
-    Ejercicio subido a Vercel:
+    Ejercicio subido a Vercel: https://react-contador-pearl.vercel.app/
 - ** Proximamente más actividades...**
   ##End
