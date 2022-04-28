@@ -1,0 +1,33 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(
+    0deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+.wrapper h1 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+.wrapper p {
+  margin-bottom: 1.5rem;
+}
+
+.formulario-contador input {
+  margin: 1.5rem 0 0 0.6rem;
+  padding: 0.5rem;
+  width: 8rem;
+  border: none;
+  background-color: #e0a0cd;
+  cursor: pointer;
+  border-radius: 5rem;
+}
+.formulario-contador input:hover {
+  background-color: #e079c2;
+}
